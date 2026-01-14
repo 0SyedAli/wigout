@@ -1,0 +1,1036 @@
+/* RESET */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-quicksand);
+  background-color: #ffffff;
+}
+
+/* COLORS */
+:root {
+  --primary-dark: #3b0026;
+  --primary-mid: #6a003f;
+  --primary-light: #8a145a;
+  --card-dark: #4b0b32;
+}
+
+p {
+  font-family: var(--font-poppins);
+  font-size: 18px;
+  font-weight: 400;
+  color: #606060;
+}
+
+/* ================= Header ================= */
+.navbar-section {
+  background-color: #47082E;
+  position: relative;
+  top: unset;
+  left: unset;
+  padding: 15px 0;
+}
+
+.navbar-section.detail-nav {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding-top: 15px;
+}
+
+/* NAV MENU */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Active dot under HOME (example) */
+.nav-menu li a.active::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ================= Header ================= */
+/* ================= AUTH ================= */
+
+/* ================= AUTH LAYOUT ================= */
+
+.auth-layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3b0026, #6a003f);
+}
+
+.auth-layout-left {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-layout-img {
+  object-fit: cover;
+  z-index: 1;
+}
+
+.auth-logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 2;
+}
+
+/* Right side (form container) */
+.auth-layout-right {
+  padding: 40px;
+}
+
+/* ================= AUTH FORM ONLY ================= */
+
+.auth-box {
+  background: #fff;
+  border-radius: 26px;
+  padding: 48px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Headings */
+.auth-box h2 {
+  text-align: center;
+  font-size: 50px;
+  font-family: var(--font-quicksand);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #4b0b32;
+}
+
+.auth-sub {
+  font-size: 16px;
+  color: #47082E;
+  margin-bottom: 22px;
+  text-align: center;
+  font-weight: 600;
+  font-family: var(--font-urbanist);
+}
+
+/* Inputs */
+.auth-box input,
+.auth-box select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d7a1be;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.auth-box input:focus,
+.auth-box select:focus {
+  outline: none;
+  border-color: #6a003f;
+}
+
+.auth-box input[type="checkbox"] {
+  width: unset;
+  margin: 0;
+  padding: 0 !important;
+}
+
+/* Remember */
+.remember {
+  font-size: 16px;
+  color: #47082E;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-urbanist);
+  font-weight: 600;
+}
+
+/* Social */
+.auth-or {
+  font-size: 16px;
+  font-family: var(--font-urbanist);
+  font-weight: 600;
+  color: #47082E;
+  text-align: center;
+  margin: 12px 0;
+}
+
+.social {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 16px;
+  font-family: var(--font-urbanist);
+  font-weight: 600;
+  color: #47082E;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  line-height: 100%;
+}
+
+.social.google {
+  border-color: #6689C9;
+}
+
+
+.social.facebook {
+  border-color: #6689C9;
+}
+
+.social.facebook div {
+  color: #1877f2;
+
+}
+
+/* Main Button */
+.auth-btn {
+  width: 100%;
+  background: #4b0b32;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+
+/* privacy policy */
+.register_link h5 {
+  font-family: var(--font-urbanist);
+  font-size: 18px;
+  text-align: center;
+  margin: 13px 0 0 0;
+}
+
+.register_link a {
+  color: #0066ff;
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .auth-layout-right {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+
+
+
+/* ================= AUTH ================= */
+/* ================= HERO ================= */
+.hero-section {
+  background: linear-gradient(135deg, #3b0026, #6a003f);
+  background-image: url("/images/hero-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 0 50px;
+}
+
+.hero-section h1 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: #FFF;
+  font-size: 56px;
+}
+
+.hero-section p {
+  color: #FFF;
+}
+
+.hero-btn {
+  background: #ffffff;
+  color: var(--primary-dark);
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 1px solid #ffffff;
+}
+
+.hero_img {
+  width: 70%;
+}
+
+/* ================= ABOUT ================= */
+.about-section h2 {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 50px;
+}
+
+.about-section p {
+  color: #606060;
+}
+
+/* ================= WHY CHOOSE ================= */
+.why-title {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 50px;
+}
+
+.why-list li {
+  margin-bottom: 24px;
+}
+
+.why-list strong {
+  color: var(--primary-dark);
+  font-size: 22px;
+}
+
+/* ================= HOW IT WORKS ================= */
+.how-title {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 50px;
+}
+
+.how-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px 24px;
+  height: 100%;
+}
+
+.how-card h5,
+.how-card p {
+  color: #FFF;
+}
+
+.how-card h5 {
+  font-size: 24.89px;
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+.how-card p {
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ================= TESTIMONIAL ================= */
+/* ================= TESTIMONIAL SLIDER ================= */
+
+.testimonial-section {
+  position: relative;
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+/* Purple background block */
+.testimonial-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: linear-gradient(180deg, #3b0026, #6a003f);
+  background-image: url("/images/testi-bg.png");
+  background-position: end;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+/* Image card */
+.testimonial-image {
+  position: relative;
+  z-index: 2;
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 360px;
+}
+
+/* Content */
+.testimonial-content {
+  padding-left: 40px;
+}
+
+.testimonial-name {
+  font-size: 50px;
+  font-weight: 700;
+  color: #4b0b32;
+}
+
+.testimonial-role {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.testimonial-stars {
+  color: #ff9f1c;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  font-size: 25px;
+}
+
+.testimonial-text {
+  color: #666;
+  line-height: 1.9;
+  max-width: 680px;
+}
+
+/* Arrows */
+.testimonial-arrow {
+  width: 42px;
+  height: 42px;
+  background: #6E3357;
+  color: #fff;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.testimonial-prev {
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.testimonial-next {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+/* Swiper override */
+.swiper {
+  padding-bottom: 40px;
+}
+
+
+/* ================= DOWNLOAD ================= */
+.download-section {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-mid));
+  color: #fff;
+}
+
+.download-section p {
+  color: #FFF;
+}
+
+.download-section h2 {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+/* ================= Footer ================= */
+.footer-section p {
+  padding: 0;
+  margin: 0;
+
+}
+
+/* ================= Footer ================= */
+
+/* ================= Home Page ================= */
+
+/* ================= HOME HERO ================= */
+.home-hero {
+  background: linear-gradient(135deg, #3b0026, #6a003f);
+  background-image: url("/images/home-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 0 0;
+}
+
+.home-hero h1 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: #FFF;
+  font-size: 56px;
+}
+
+.home-hero p {
+  color: #FFF;
+}
+
+.hero-btn {
+  background: #ffffff;
+  color: #3b0026;
+  border-radius: 6px;
+  padding: 12px 26px;
+  font-weight: 600;
+  border: none;
+}
+
+/* ================= CARD ================= */
+.place-card {
+  background: #fff;
+  border-radius: 37px;
+  padding: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.place-card img {
+  border-radius: 30px;
+  width: 100%;
+}
+
+.place-name {
+  font-weight: 600;
+  font-family: var(--font-urbanist);
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.place-location {
+  font-size: 18px;
+  color: #777;
+}
+
+.heart {
+  color: #6a003f;
+}
+
+/* ================= SECTIONS ================= */
+/* ================= RESTAURANT DETAIL ================= */
+
+.rd-page {
+  background: #fff;
+}
+
+.rd-hero {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+
+.rd-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rd-container {
+  padding-top: 26px;
+}
+
+.rd-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rd-title {
+  font-size: 50px;
+  font-family: var(--font-urbanist);
+  font-weight: 700;
+  margin: 0;
+  color: #2b2b2b;
+}
+
+.rd-heart {
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  color: #2b2b2b;
+  cursor: pointer;
+}
+
+.rd-divider {
+  margin: 18px 0 26px;
+  opacity: 0.25;
+}
+
+.rd-h3 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 12px;
+  font-family: var(--font-urbanist);
+}
+
+.rd-text {
+  font-size: 14px;
+  color: #616161;
+  line-height: 1.9;
+}
+
+/* Reviews section layout */
+.rd-reviews-wrap {
+  display: flex;
+  gap: 30px;
+  margin-top: 28px;
+  align-items: flex-start;
+}
+
+.rd-left {
+  flex: 1;
+}
+
+.rd-right {
+  width: 220px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Bars */
+.rd-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rd-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rd-star {
+  width: 18px;
+  font-size: 14px;
+  color: #616161;
+}
+
+.rd-bar {
+  width: 100%;
+  height: 10px;
+  background: #f1f1f1;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.rd-bar-fill {
+  height: 100%;
+  background: #4b0b32;
+  /* maroon */
+  border-radius: 30px;
+}
+
+/* Stats right */
+.rd-stat-big {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2b2b2b;
+  line-height: 1;
+}
+
+.rd-gold {
+  color: #ff9f1c;
+  font-size: 22px;
+}
+
+.rd-stat-small {
+  color: #9a9a9a;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Location */
+.rd-location {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #616161;
+  font-size: 16px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-family: var(--font-urbanist);
+}
+
+.rd-pin {
+  font-size: 16px;
+}
+
+/* Map mock like screenshot */
+.rd-map {
+  width: 100%;
+  height: 300px;
+  background: #ecebff;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fake map lines */
+.rd-map::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.8) 10%, transparent 10%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.65) 8%, transparent 8%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.6) 12%, transparent 12%);
+  opacity: 0.7;
+}
+
+/* Map pin with circular image */
+.rd-map-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  width: 48px;
+  height: 48px;
+  background: #4b0b32;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.rd-map-pin::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #4b0b32;
+}
+
+.rd-map-pin-inner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+}
+
+.rd-map-pin-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Add review */
+.rd-review-box {
+  width: 100%;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rd-review-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #444;
+}
+
+.rd-send {
+  width: 42px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #4b0b32;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Actions */
+.rd-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.rd-btn {
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rd-btn-light {
+  background: rgba(75, 11, 50, 0.75);
+  color: #fff;
+}
+
+.rd-btn-dark {
+  background: #4b0b32;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .rd-reviews-wrap {
+    flex-direction: column;
+  }
+
+  .rd-right {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+  }
+}
+
+/* ================= RESTAURANT DETAIL ================= */
+
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: var(--font-urbanist);
+}
+
+.see-all {
+  color: #6a003f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: linear-gradient(135deg, #3b0026, #6a003f);
+  color: #fff;
+  padding: 60px 0 20px;
+}
+
+.footer h6 {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.footer p,
+.footer a {
+  color: #ddd;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer a {
+  font-size: 14px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 16px;
+}
+
+/* ================= Home Page ================= */
+/* ================= Lists Page ================= */
+/* ================= LISTS PAGE ================= */
+
+.lists-page {
+  background: #fff;
+}
+
+.lists-title {
+  color: #47082E;
+}
+
+/* Tabs */
+.lists-tabs {
+  display: inline-flex;
+  border-radius: 30px;
+  justify-content: center;
+  gap: 12px;
+  background-color: #6E3357;
+  margin: 0 auto;
+}
+
+.lists-tab {
+  padding: 15px 35px;
+  border-radius: 30px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-urbanist);
+}
+
+.lists-tab.active {
+  background: #47082E;
+}
+
+/* Cards */
+.lists-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.list-card {
+  background: #fff;
+  border: 1px solid #B3B3B3;
+  border-radius: 10px;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Left */
+.list-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.list-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.list-name {
+  font-weight: 600;
+  font-size: 14px;
+  font-family: var(--font-poppins);
+}
+
+.list-location {
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-urbanist);
+  font-weight: 500;
+  color: #616161;
+
+}
+
+.list-location span {
+  color: #47082E;
+
+}
+
+/* Actions */
+.list-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit {
+  background: #6E3357;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.btn-remove {
+  background: #E51A13;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.btn-view {
+  background: #47082E;
+  color: #fff;
+  border: none;
+  padding: 9px 25px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.list-actions .btn {
+  font-family: var(--font-urbanist);
+  font-weight: 600;
+
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .list-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .list-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+
+/* ================= Lists Page ================= */
+
+@media (max-width:1444px) {
+
+  .hero-section h1,
+  .home-hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-section p {}
+
+  p {
+    font-size: 14px;
+
+  }
+}
+
+@media (max-height:650px) {
+  .auth-box-login h2 {
+    font-size: 40px;
+    margin: 0 0 20px;
+    line-height: 31px;
+  }
+
+  .auth-box-login {
+    padding: 28px 50px;
+  }
+  .auth-sub {
+    margin-bottom: 15px;
+  }
+}
