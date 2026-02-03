@@ -997,6 +997,10 @@ a {
 table td,
 table th {
   white-space: nowrap;
+  font-family: var(--font-poppins);
+}
+table td {
+  font-weight: 500;
 }
 
 .dashboard_container {
