@@ -2,6 +2,7 @@ import Image from "next/image";
 import { GrLocation } from "react-icons/gr";
 import { FiPhone } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -48,8 +49,8 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom d-flex justify-content-between mt-4">
-          <span>©2025 | WIG OUT | All Rights Reserved</span>
-          <span>Terms and Conditions | Privacy Policy</span>
+          <span>©2025 | <Link href="/home" className="fw-bold">WIG OUT</Link> | All Rights Reserved</span>
+          <span><Link href="/terms-and-condition">Terms and Conditions</Link> | <Link href="/privacy-policy">Privacy Policy</Link></span>
         </div>
 
       </div>
