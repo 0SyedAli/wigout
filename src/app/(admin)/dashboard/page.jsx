@@ -185,7 +185,7 @@ function StatCard({ title, value, danger }) {
             </div>
             <span className={`stat-badge ${danger ? "red" : ""}`}>{danger ? <ImArrowDownLeft2  /> : <ImArrowUpRight2 />} 4.8%</span>
           </div>
-          <Image width={89.79} height={36.77} alt="" src={`/images/${danger ? 'wo-chart-icon2.png' : 'wo-chart-icon1.png'}`} />
+          <Image width={70.79} height={36.77} alt="" src={`/images/${danger ? 'wo-chart-icon2.png' : 'wo-chart-icon1.png'}`} />
         </div>
       </div>
     </div>

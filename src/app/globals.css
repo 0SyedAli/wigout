@@ -506,10 +506,12 @@ p {
   padding: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
+
 .place-card img {
   border-radius: 30px;
   width: 100%;
@@ -1341,6 +1343,7 @@ table th {
   font-weight: 600;
   color: #5a004f;
   padding-left: 0;
+  gap: 20px;
 }
 
 .page-header-main {
@@ -1363,7 +1366,7 @@ table th {
 .filter-bar {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .filter-bar input,
@@ -1372,6 +1375,7 @@ table th {
   border: 1px solid #ddd;
   padding: 8px 14px;
   font-size: 14px;
+  width: 100%;
 }
 
 /* ===== Table ===== */
@@ -1721,6 +1725,16 @@ button {
   }
 }
 
+@media (max-height:700px) {
+  .sidebar-header {
+    margin-top: 10px;
+  }
+
+  .sidebar-header img {
+    width: 150px;
+  }
+}
+
 @media (max-height:650px) {
   .auth-box-login h2 {
     font-size: 40px;
@@ -1734,5 +1748,17 @@ button {
 
   .auth-sub {
     margin-bottom: 15px;
+  }
+
+  .menu-item {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+}
+
+@media (max-height:580px) {
+  ul.list-unstyled.list-unstyled2 {
+    height: 280px;
+    overflow: auto;
   }
 }
