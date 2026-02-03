@@ -1000,7 +1000,7 @@ input {
 table td,
 table th {
   white-space: nowrap;
-  font-family: var(--font-poppins);
+  font-family: var(--font-quicksand);
 }
 
 table td {
