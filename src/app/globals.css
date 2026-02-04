@@ -1700,8 +1700,6 @@ button {
     font-size: 42px;
   }
 
-  .hero-section p {}
-
   p {
     font-size: 14px;
 
@@ -1718,6 +1716,9 @@ button {
     font-size: 15px;
   }
 
+  .w0-line-canva canvas {
+    height: 350px !important;
+  }
 }
 
 @media (max-width: 768px) {
