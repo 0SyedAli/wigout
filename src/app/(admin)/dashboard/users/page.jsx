@@ -11,9 +11,9 @@ export default function UsersPage() {
           <div className="filter-bar">
             <input placeholder="Name" />
             <input placeholder="Email" />
-            <select><option>Status</option></select>
+            {/* <select><option>Status</option></select>
             <input placeholder="Location" />
-            <input type="date" />
+            <input type="date" /> */}
           </div>
         </div>
 
@@ -39,8 +39,8 @@ export default function UsersPage() {
                 <td className="action-icons fs-5">
                   <div className="d-flex align-items-center gap-3">
                     <FaRegEye />
-                    <MdOutlineModeEdit />
-                  {/* <span className="action-danger">Suspend</span> */}
+                    {/* <MdOutlineModeEdit /> */}
+                    {/* <span className="action-danger">Suspend</span> */}
                   </div>
                 </td>
               </tr>

@@ -25,31 +25,31 @@ export default function StudentSidebar() {
       label: "User Management",
       path: "/dashboard/users",
     },
-    {
-      icon: <LuCalendarCheck size={17} />,
-      label: "Establishments",
-      path: "/dashboard/establishments",
-    },
-    {
-      icon: <TbNotification size={17} />,
-      label: "Categories",
-      path: "/dashboard/categories",
-    },
+    // {
+    //   icon: <LuCalendarCheck size={17} />,
+    //   label: "Establishments",
+    //   path: "/dashboard/establishments",
+    // },
+    // {
+    //   icon: <TbNotification size={17} />,
+    //   label: "Categories",
+    //   path: "/dashboard/categories",
+    // },
     {
       icon: <MdOutlineAnalytics size={17} />,
       label: "Ratings & Reviews",
       path: "/dashboard/reviews",
     },
-    {
-      icon: <MdOutlineAnalytics size={17} />,
-      label: "Notifications",
-      path: "/dashboard/notifications",
-    },
-    {
-      icon: <MdOutlineAnalytics size={17} />,
-      label: "Integrations",
-      path: "/dashboard/integrations",
-    },
+    // {
+    //   icon: <MdOutlineAnalytics size={17} />,
+    //   label: "Notifications",
+    //   path: "/dashboard/notifications",
+    // },
+    // {
+    //   icon: <MdOutlineAnalytics size={17} />,
+    //   label: "Integrations",
+    //   path: "/dashboard/integrations",
+    // },
     // {
     //   icon: <MdOutlineAnalytics size={17} />,
     //   label: "Analytics",
@@ -57,13 +57,13 @@ export default function StudentSidebar() {
     // },
     {
       icon: <MdOutlineAnalytics size={17} />,
-      label: "System Settings",
-      path: "/dashboard/settings",
+      label: "Support",
+      path: "/dashboard/support",
     },
     {
       icon: <MdOutlineAnalytics size={17} />,
-      label: "Support",
-      path: "/dashboard/support",
+      label: "System Settings",
+      path: "/dashboard/settings",
     },
   ];
 

@@ -86,7 +86,7 @@ export default function Dashboard() {
       <div className="row g-4 mb-4">
         <StatCard title="Total Users" value="12,482" />
         <StatCard title="Total Establishments" value="1,234" />
-        <StatCard title="Active Alerts Sent" value="27" danger />
+        <StatCard title="Total Reviews" value="27" danger />
         <StatCard title="New Signups Today" value="56" />
       </div>
 
@@ -94,7 +94,7 @@ export default function Dashboard() {
       <div className="row g-4 mb-4">
 
         {/* Activity Feed */}
-        <div className="col-lg-7">
+        {/* <div className="col-lg-7">
           <div className="card clean-card h-100">
             <div className="card-header clean-header">
               <span className="fw-bold">Recent Activity Feed</span>
@@ -109,10 +109,10 @@ export default function Dashboard() {
               <Activity type="helpful" badge="+ Helpful" />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Ratings */}
-        <div className="col-lg-5">
+        {/* <div className="col-lg-5">
           <div className="card clean-card h-100">
             <div className="card-header clean-header">
               <span className="fw-bold">Ratings Summary</span>
@@ -151,7 +151,7 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
 
@@ -183,7 +183,7 @@ function StatCard({ title, value, danger }) {
             <div className="stat-row">
               <h3>{value}</h3>
             </div>
-            <span className={`stat-badge ${danger ? "red" : ""}`}>{danger ? <ImArrowDownLeft2  /> : <ImArrowUpRight2 />} 4.8%</span>
+            <span className={`stat-badge ${danger ? "red" : ""}`}>{danger ? <ImArrowDownLeft2 /> : <ImArrowUpRight2 />} 4.8%</span>
           </div>
           <Image width={70.79} height={36.77} alt="" src={`/images/${danger ? 'wo-chart-icon2.png' : 'wo-chart-icon1.png'}`} />
         </div>

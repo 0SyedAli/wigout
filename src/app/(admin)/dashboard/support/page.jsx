@@ -37,8 +37,8 @@ export default function SupportPage() {
                             <td className="action-icons fs-5">
                                 <div className="d-flex align-items-center gap-3">
                                     <FaRegEye />
-                                    <MdOutlineModeEdit />
-                                    <RiDeleteBin6Line color="red"/>
+                                    {/* <MdOutlineModeEdit /> */}
+                                    {/* <RiDeleteBin6Line color="red" /> */}
                                 </div>
                             </td>
                         </tr>
@@ -50,8 +50,34 @@ export default function SupportPage() {
                             <td className="action-icons fs-5">
                                 <div className="d-flex align-items-center gap-3">
                                     <FaRegEye />
-                                    <MdOutlineModeEdit />
-                                    <RiDeleteBin6Line color="red"/>
+                                    {/* <MdOutlineModeEdit /> */}
+                                    {/* <RiDeleteBin6Line color="red" /> */}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>Unable to reset password</td>
+                            <td>2025-09-10</td>
+                            <td><button className="btn-soft orange">Open</button></td>
+                            <td className="action-icons fs-5">
+                                <div className="d-flex align-items-center gap-3">
+                                    <FaRegEye />
+                                    {/* <MdOutlineModeEdit />
+                                    <RiDeleteBin6Line color="red" /> */}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>John Smith</td>
+                            <td>App keeps crashing</td>
+                            <td>2025-09-10</td>
+                            <td><button className="btn-soft green">Resolved</button></td>
+                            <td className="action-icons fs-5">
+                                <div className="d-flex align-items-center gap-3">
+                                    <FaRegEye />
+                                    {/* <MdOutlineModeEdit />
+                                    <RiDeleteBin6Line color="red" /> */}
                                 </div>
                             </td>
                         </tr>
@@ -59,7 +85,7 @@ export default function SupportPage() {
                 </table>
 
                 {/* FAQ */}
-                <div className="page-header mt-4">
+                {/* <div className="page-header mt-4">
                     <h6>FAQ Management</h6>
                     <button className="btn-primary-pill">Add FAQ</button>
                 </div>
@@ -80,7 +106,7 @@ export default function SupportPage() {
                             <button className="btn-soft green">Edit</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
         </div>
