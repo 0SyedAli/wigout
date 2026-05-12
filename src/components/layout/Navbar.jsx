@@ -54,7 +54,7 @@ export default function Navbar() {
 
                     {/* LOGO */}
                     <div className="col-3">
-                        <Link href="/home">
+                        <Link href="#!">
                             <Image
                                 src="/images/logo-white.png"
                                 width={202.67}
