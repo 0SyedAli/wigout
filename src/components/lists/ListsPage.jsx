@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import AOS from "aos";
+import { useEffect, useState } from "react";
 import { HiLocationMarker } from "react-icons/hi";
 
 const DATA = {
@@ -21,16 +22,20 @@ const DATA = {
 export default function ListsPage() {
     const [active, setActive] = useState("again");
 
+    useEffect(() => {
+        AOS.refresh();
+    }, [active]);
+
     return (
         <>
             <section className="lists-page py-5">
                 <div className="container">
 
                     {/* Title */}
-                    <h1 className="rd-title lists-title text-center mb-4">LISTS</h1>
+                    <h1 className="rd-title lists-title text-center mb-4" data-aos="fade-down">LISTS</h1>
 
                     {/* Tabs */}
-                    <div className="d-flex align-items-center">
+                    <div className="d-flex align-items-center" data-aos="fade-up">
                         <div className="lists-tabs mb-4">
                             <button
                                 className={`lists-tab ${active === "again" ? "active" : ""}`}
@@ -58,7 +63,7 @@ export default function ListsPage() {
                     {/* List */}
                     <div className="lists-wrapper">
                         {DATA[active].map((item, i) => (
-                            <div className="list-card" key={i}>
+                            <div className="list-card" key={`${active}-${i}`} data-aos="fade-up" data-aos-delay={i * 100}>
 
                                 <div className="list-left">
                                     <img

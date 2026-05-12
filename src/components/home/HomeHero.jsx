@@ -4,7 +4,7 @@ export default function HomeHero() {
       <div className="container">
         <div className="row align-items-center">
 
-          <div className="col-md-6">
+<div className="col-md-6" data-aos="fade-left">
             <h1>
               Where Should I Eat,<br />
               Where Should I Sleep?
@@ -19,13 +19,18 @@ export default function HomeHero() {
             </button>
           </div>
 
-          <div className="col-md-6 text-center">
-            <img
-              src="/images/home-img1.png"
-              className="img-fluid"
-              alt="Hero"
-            />
+          <div className="col-md-6 text-center" data-aos="fade-right">
+            <div className="position-relative">
+              <div className="shape-blob" style={{ top: '-10%', left: '-10%', background: 'rgba(255, 255, 255, 0.1)' }}></div>
+              <img
+                src="/images/home-img1.png"
+                className="img-fluid animate-float-horizontal"
+                alt="Hero"
+              />
+            </div>
           </div>
+
+          
 
         </div>
       </div>

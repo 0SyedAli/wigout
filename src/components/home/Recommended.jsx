@@ -7,14 +7,14 @@ export default function Recommended() {
         <section className="py-5">
             <div className="container">
 
-                <div className="d-flex justify-content-between align-items-center mb-4">
+                <div className="d-flex justify-content-between align-items-center mb-4" data-aos="fade-up">
                     <h2 className="section-title">Recommended</h2>
                     <a href="#" className="see-all">See All</a>
                 </div>
 
                 <div className="row">
                     {items.map((_, i) => (
-                        <div className="col-md-4 mb-4" key={i}>
+                        <div className="col-md-4 mb-4" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
                             <Link href="/home/12">
                                 <div className="place-card">
                                     <img

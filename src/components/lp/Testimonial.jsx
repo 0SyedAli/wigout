@@ -35,7 +35,7 @@ export default function Testimonial() {
     <section className="testimonial-section">
       <div className="testimonial-bg"></div>
 
-      <div className="container position-relative">
+      <div className="container position-relative" data-aos="fade-up">
         <Swiper
           modules={[Navigation]}
           navigation={{

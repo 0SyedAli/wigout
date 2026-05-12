@@ -47,7 +47,7 @@ export default function AnalyticsPage() {
 
             {/* ===== HEADER ===== */}
             <div className="admin-card mb-4">
-                <div className="page-header pe-0">
+                <div className="page-header">
                     <h5>Analytics & Reports</h5>
 
                     <div className="d-flex gap-2">
@@ -56,7 +56,7 @@ export default function AnalyticsPage() {
                     </div>
                 </div>
 
-                <div className="pb-4">
+                <div className="px-4 pb-4">
                     <div className="filter-bar">
                         <select><option>Time Range</option></select>
                         <select><option>Category</option></select>
@@ -70,7 +70,7 @@ export default function AnalyticsPage() {
             <div className="row g-4">
 
                 {/* Bar Chart */}
-                <div className="col-lg-12">
+                <div className="col-lg-6">
                     <div className="admin-card p-4 h-100">
                         <h6 className="mb-4">Most Popular Establishments</h6>
                         <Bar data={barData} options={barOptions} />
@@ -78,12 +78,12 @@ export default function AnalyticsPage() {
                 </div>
 
                 {/* Heatmap */}
-                {/* <div className="col-lg-6">
+                <div className="col-lg-6">
                     <div className="admin-card p-4 h-100">
                         <h6 className="mb-4">Engagement Heatmap</h6>
                         <Heatmap />
                     </div>
-                </div> */}
+                </div>
 
             </div>
         </div>

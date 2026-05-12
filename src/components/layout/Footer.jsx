@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom d-flex justify-content-between mt-4">
-          <span>©2025 | <Link href="/home" className="fw-bold">WIG OUT</Link> | All Rights Reserved</span>
+          <span>©2026 | <Link href="/home" className="fw-bold">WIG OUT</Link> | All Rights Reserved</span>
           <span><Link href="/terms-and-condition">Terms and Conditions</Link> | <Link href="/privacy-policy">Privacy Policy</Link></span>
         </div>
 

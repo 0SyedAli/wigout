@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-4">
-                        <p>©2025 | WIG OUT | All Rights Reserved</p>
+                        <p>©2026 | WIG OUT | All Rights Reserved</p>
                     </div>
                     <div className="col-4 d-flex align-items-center justify-content-center">
                         <Image

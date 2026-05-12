@@ -7,11 +7,11 @@ export default function DiscoverNearby() {
     <section className="py-5 bg-light">
       <div className="container">
 
-        <h2 className="section-title mb-4">Discover Nearby</h2>
+        <h2 className="section-title mb-4" data-aos="fade-up">Discover Nearby</h2>
 
         <div className="row">
           {items.map((_, i) => (
-            <div className="col-md-4 col-xl-3 mb-4" key={i}>
+            <div className="col-md-4 col-xl-3 mb-4" key={i} data-aos="fade-up" data-aos-delay={(i % 4) * 100}>
               <Link href="/home/12">
                 <div className="place-card">
                   <img

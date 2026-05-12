@@ -4,7 +4,7 @@ export default function Download() {
       <div className="container">
         <div className="row align-items-center">
 
-          <div className="col-md-6">
+          <div className="col-md-6" data-aos="fade-right">
             <h2>
               Download the App<br />& Start Your Journey
             </h2>
@@ -19,10 +19,10 @@ export default function Download() {
             </div>
           </div>
 
-          <div className="col-md-4 text-center mt-4 mt-md-0">
+          <div className="col-md-4 text-center mt-4 mt-md-0" data-aos="zoom-in">
             <img
               src="/images/banner-right-img.png"
-              className="img-fluid"
+              className="img-fluid animate-float-slow"
               alt="Download"
             />
           </div>

@@ -21,6 +21,61 @@ p {
   color: #606060;
 }
 
+/* HALCHAL ANIMATIONS */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float-horizontal {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(15px); }
+  100% { transform: translateX(0px); }
+}
+
+@keyframes pulse-subtle {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-horizontal {
+  animation: float-horizontal 7s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* Background Shapes */
+.shape-blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(138, 20, 90, 0.05);
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: -1;
+}
+
 /* ================= Header ================= */
 .navbar-section {
   background-color: #47082E;
@@ -505,6 +560,12 @@ p {
   border-radius: 35px;
   padding: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.3s ease;
+}
+
+.place-card:hover {
+  transform: translateY(-10px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px;
 }
 
 a {
