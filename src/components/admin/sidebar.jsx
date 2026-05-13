@@ -65,11 +65,7 @@ export default function StudentSidebar() {
       label: "Account Settings",
       path: "/dashboard/settings",
     },
-    {
-      icon: <MdOutlineAnalytics size={17} />,
-      label: "Reset Password",
-      path: "/dashboard/reset",
-    },
+
   ];
 
   const userMenuItems = [
