@@ -30,31 +30,31 @@ export default function StudentSidebar() {
     //   label: "Establishments",
     //   path: "/dashboard/establishments",
     // },
-    // {
-    //   icon: <TbNotification size={17} />,
-    //   label: "Categories",
-    //   path: "/dashboard/categories",
-    // },
+    {
+      icon: <TbNotification size={17} />,
+      label: "Categories",
+      path: "/dashboard/categories",
+    },
     {
       icon: <MdOutlineAnalytics size={17} />,
       label: "Ratings & Reviews",
       path: "/dashboard/reviews",
     },
-    // {
-    //   icon: <MdOutlineAnalytics size={17} />,
-    //   label: "Notifications",
-    //   path: "/dashboard/notifications",
-    // },
+    {
+      icon: <MdOutlineAnalytics size={17} />,
+      label: "Notifications",
+      path: "/dashboard/notifications",
+    },
     // {
     //   icon: <MdOutlineAnalytics size={17} />,
     //   label: "Integrations",
     //   path: "/dashboard/integrations",
     // },
-    // {
-    //   icon: <MdOutlineAnalytics size={17} />,
-    //   label: "Analytics",
-    //   path: "/dashboard/analytics",
-    // },
+    {
+      icon: <MdOutlineAnalytics size={17} />,
+      label: "Analytics",
+      path: "/dashboard/analytics",
+    },
     {
       icon: <MdOutlineAnalytics size={17} />,
       label: "Support",
@@ -62,8 +62,13 @@ export default function StudentSidebar() {
     },
     {
       icon: <MdOutlineAnalytics size={17} />,
-      label: "System Settings",
+      label: "Account Settings",
       path: "/dashboard/settings",
+    },
+    {
+      icon: <MdOutlineAnalytics size={17} />,
+      label: "Reset Password",
+      path: "/dashboard/reset",
     },
   ];
 

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <section className="about-section py-5">
@@ -7,9 +9,11 @@ export default function About() {
           <div className="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
             <div className="position-relative">
               <div className="shape-blob" style={{ bottom: '-10%', left: '-10%' }}></div>
-              <img
-                src="/images/lp-2.png"
-                className="img-fluid animate-float"
+              <Image
+                src="/images/lp-2.jpg"
+                width={400}
+                height={450}
+                className="img-fluid animate-float rounded-4"
                 alt="About WIG Out"
               />
             </div>
