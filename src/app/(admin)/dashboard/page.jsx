@@ -24,21 +24,116 @@ ChartJS.register(
   Legend
 );
 const lineData = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+  labels: [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30"
+  ],
   datasets: [
     {
-      label: 'Top "Go Again" Spots',
-      data: [180, 310, 240, 190, 300, 260, 180],
+      // label: 'Top "Go Again" Spots',
+      data: [
+        1,
+        1,
+        0,
+        0,
+        0,
+        5,
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
       borderColor: "#6A1B9A",
       tension: 0.4,
       pointRadius: 0,
+      borderWidth: 2,
     },
     {
-      label: 'Top "Avoid" Spots',
-      data: [120, 270, 220, 150, 210, 190, 130],
+      // label: 'Top "Avoid" Spots',
+      data: [
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
       borderColor: "#FF7A00",
       tension: 0.4,
       pointRadius: 0,
+      borderWidth: 2,
     },
   ],
 };
@@ -56,7 +151,7 @@ const lineOptions = {
   scales: {
     y: {
       grid: { color: "#f0f0f0" },
-      ticks: { stepSize: 100 },
+      // ticks: { stepSize: 100 },
     },
     x: { grid: { display: false } },
   },
@@ -92,14 +187,28 @@ export default function Dashboard() {
 
       {/* ================= FEED + RATINGS ================= */}
       <div className="row g-4 mb-4">
+        <div className="col-12">
+          <div className="card clean-card">
+            <div className="card-header clean-header">
+              <span className="fw-bold">Engagement trend line graph</span>
+              <select className="clean-select">
+                <option>April 2026</option>
+                <option>May 2026</option>
+              </select>
+            </div>
 
+            <div className="card-body w0-line-canva">
+              <Line data={lineData} options={lineOptions} />
+            </div>
+          </div>
+        </div>
         {/* Activity Feed */}
-        {/* <div className="col-lg-7">
+        <div className="col-lg-7">
           <div className="card clean-card h-100">
             <div className="card-header clean-header">
               <span className="fw-bold">Recent Activity Feed</span>
               <select className="clean-select">
-                <option>Latest Ratings</option>
+                <option>Latest Feed</option>
               </select>
             </div>
 
@@ -109,10 +218,10 @@ export default function Dashboard() {
               <Activity type="helpful" badge="+ Helpful" />
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* Ratings */}
-        {/* <div className="col-lg-5">
+        <div className="col-lg-5">
           <div className="card clean-card h-100">
             <div className="card-header clean-header">
               <span className="fw-bold">Ratings Summary</span>
@@ -151,21 +260,13 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
+
 
       </div>
 
       {/* ================= LINE GRAPH ================= */}
-      <div className="card clean-card">
-        <div className="card-header clean-header">
-          <span className="fw-bold">Engagement trend line graph</span>
-          <span className="muted">Past 30 days</span>
-        </div>
 
-        <div className="card-body w0-line-canva">
-          <Line data={lineData} options={lineOptions} />
-        </div>
-      </div>
 
     </div>
   );

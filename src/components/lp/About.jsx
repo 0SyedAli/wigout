@@ -22,10 +22,10 @@ export default function About() {
           <div className="col-md-6" data-aos="fade-left">
             <h2>About W.I.G Out</h2>
             <p className="mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Hello, my name is Kerrie Dewey, I don't know about you but remembering everywhere my husband and I go is sometimes way more difficult than we would think it is. Which restaurants we've tried and which ones we haven’t. What we ate or did they have my favorite salad dressing? And what was our server’s name at that new place we tried? These questions came up every time we decided to go out and not only restaurants. My husband's job takes him away from home so if we want to see each other throughout the week I get a hotel room nearby. But which hotel was clean and which one had good water pressure? Or all those small cafes, or mini vacation getaways. It’s hard remembering it all. One day I told my husband, “there should be an app that reminds you of where you’ve been and if you liked it or hated it.” And so the idea was born!
             </p>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              I am blessed to be married to the most amazing man! His love and support, along with my family’s patients during this stressful and chaotic year are why my idea became a reality, an actual app. Thank you all so much for believing in me! And to all that download this app, thank you and i hope it helps you as much as it is helping us!
             </p>
           </div>
 
