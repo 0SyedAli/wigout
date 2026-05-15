@@ -5,7 +5,6 @@ export default function About() {
     <section className="about-section py-5">
       <div className="container">
         <div className="row align-items-center">
-
           <div className="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
             <div className="position-relative">
               <div className="shape-blob" style={{ bottom: '-10%', left: '-10%' }}></div>
