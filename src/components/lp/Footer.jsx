@@ -11,8 +11,8 @@ export default function Footer() {
                     <div className="col-4 d-flex align-items-center justify-content-center">
                         <Image
                             src="/images/logo.png"
-                            width={202.67}
-                            height={76.1}
+                            width={250.67}
+                            height={100}
                             style={{ objectFit: "contain" }}
                             alt=""
                         />
