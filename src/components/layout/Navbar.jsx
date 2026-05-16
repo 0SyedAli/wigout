@@ -57,8 +57,8 @@ export default function Navbar() {
                         <Link href="#!">
                             <Image
                                 src="/images/logo-white.png"
-                                width={202.67}
-                                height={76.1}
+                                width={250.67}
+                                height={100}
                                 alt="WIG Out"
                             />
                         </Link>
