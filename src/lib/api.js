@@ -35,4 +35,48 @@ api.interceptors.response.use(
   }
 );
 
+export const fetchSupportTickets = async ({ page = 1, limit = 10, status = "", search = "" } = {}) => {
+  const params = {
+    page,
+    limit,
+    ...(status ? { status } : {}),
+    ...(search ? { search } : {}),
+  };
+
+  return api.get('/admin/support', { params });
+};
+
+export const updateSupportStatus = async (ticketId, status) => {
+  const endpoints = [
+    `/admin/support/${ticketId}/status`,
+    `/admin/support/${ticketId}`,
+    `/admin/support/resolve/${ticketId}`,
+  ];
+
+  let lastError;
+
+  for (const endpoint of endpoints) {
+    try {
+      return await api.patch(endpoint, { status });
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError;
+};
+
+export const fetchNotifications = async ({ page = 1, limit = 10 } = {}) => {
+  return api.get('/admin/notifications/', {
+    params: {
+      page,
+      limit,
+    },
+  });
+};
+
+export const createNotification = async (payload) => {
+  return api.post('/admin/notifications/', payload);
+};
+
 export default api;

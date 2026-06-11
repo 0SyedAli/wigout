@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,8 +12,9 @@ import {
   Legend,
 } from "chart.js";
 import Image from "next/image";
-import { Line, Doughnut } from "react-chartjs-2";
 import { ImArrowDownLeft2, ImArrowUpRight2 } from "react-icons/im";
+import { ResponsiveLine } from "@nivo/line";
+import api from "@/lib/api";
 
 ChartJS.register(
   CategoryScale,
@@ -23,139 +25,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const lineData = {
-  labels: [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "22",
-    "23",
-    "24",
-    "25",
-    "26",
-    "27",
-    "28",
-    "29",
-    "30"
-  ],
-  datasets: [
-    {
-      // label: 'Top "Go Again" Spots',
-      data: [
-        1,
-        1,
-        0,
-        0,
-        0,
-        5,
-        11,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0
-      ],
-      borderColor: "#6A1B9A",
-      tension: 0.4,
-      pointRadius: 0,
-      borderWidth: 2,
-    },
-    {
-      // label: 'Top "Avoid" Spots',
-      data: [
-        0,
-        0,
-        7,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0
-      ],
-      borderColor: "#FF7A00",
-      tension: 0.4,
-      pointRadius: 0,
-      borderWidth: 2,
-    },
-  ],
-};
-
-const lineOptions = {
-  responsive: true,
-  plugins: {
-    legend: { display: false },
-    tooltip: {
-      backgroundColor: "#1f1f1f",
-      padding: 12,
-      borderRadius: 8,
-    },
-  },
-  scales: {
-    y: {
-      grid: { color: "#f0f0f0" },
-      // ticks: { stepSize: 100 },
-    },
-    x: { grid: { display: false } },
-  },
-};
 
 const ratingsData = {
   datasets: [
@@ -170,40 +39,281 @@ const ratingsData = {
 const ratingsOptions = {
   cutout: "70%",
   plugins: { legend: { display: false } },
-
 };
 
 export default function Dashboard() {
+  const [stats, setStats] = useState(null);
+  const [statsLoading, setStatsLoading] = useState(true);
+  const [statsError, setStatsError] = useState("");
+
+  const [selectedYear, setSelectedYear] = useState("2026");
+  const [chartData, setChartData] = useState(null);
+  const [chartLoading, setChartLoading] = useState(true);
+  const [chartError, setChartError] = useState("");
+
+  // Fetch Dashboard Stats
+  useEffect(() => {
+    const fetchStats = async () => {
+      setStatsLoading(true);
+      setStatsError("");
+      try {
+        const response = await api.get("admin/dashboard/stats");
+        if (response.data && response.data.success) {
+          setStats(response.data.data);
+        } else {
+          setStatsError(response.data?.message || "Failed to fetch dashboard stats.");
+        }
+      } catch (err) {
+        console.error("Error fetching stats:", err);
+        setStatsError("Error loading dashboard stats.");
+      } finally {
+        setStatsLoading(false);
+      }
+    };
+    fetchStats();
+  }, []);
+
+  // Fetch Monthly User Chart Data
+  useEffect(() => {
+    const fetchChartData = async () => {
+      setChartLoading(true);
+      setChartError("");
+      try {
+        const response = await api.get("admin/dashboard/userChart", {
+          params: { date: selectedYear },
+        });
+        if (response.data && response.data.success) {
+          setChartData(response.data.data);
+        } else {
+          setChartError(response.data?.message || "Failed to fetch chart data.");
+        }
+      } catch (err) {
+        console.error("Error fetching chart data:", err);
+        setChartError("Error loading chart data.");
+      } finally {
+        setChartLoading(false);
+      }
+    };
+    fetchChartData();
+  }, [selectedYear]);
+
+  // Format data for Nivo ResponsiveLine
+  const nivoData = chartData
+    ? [
+      {
+        id: "Users",
+        color: "#6A1B9A",
+        data: chartData.labels.map((label, index) => ({
+          x: label,
+          y: chartData.users[index] ?? 0,
+        })),
+      },
+    ]
+    : [];
+
   return (
     <div className="container-fluid dashboard-page py-4">
-
       {/* ================= TOP STATS ================= */}
-      <div className="row g-4 mb-4">
-        <StatCard title="Total Users" value="12,482" />
-        <StatCard title="Total Establishments" value="1,234" />
-        <StatCard title="Total Reviews" value="27" danger />
-        <StatCard title="New Signups Today" value="56" />
+      <div className="row g-3 mb-4">
+        {statsLoading ? (
+          <div className="col-12 text-center py-5">
+            <div className="spinner-border" style={{ color: "#6A1B9A" }} role="status">
+              <span className="visually-hidden">Loading stats...</span>
+            </div>
+          </div>
+        ) : statsError ? (
+          <div className="col-12">
+            <div className="alert alert-danger">{statsError}</div>
+          </div>
+        ) : stats ? (
+          <>
+            <StatCard
+              title="Total Users"
+              count={stats.users?.count}
+              growth={stats.users?.growth}
+              isPositive={stats.users?.isPositive}
+              label={stats.users?.label}
+            />
+            <StatCard
+              title="Total Reviews"
+              count={stats.reviews?.count}
+              growth={stats.reviews?.growth}
+              isPositive={stats.reviews?.isPositive}
+              label={stats.reviews?.label}
+            />
+            <StatCard
+              title="Positive Reviews"
+              count={stats.positive?.count}
+              growth={stats.positive?.growth}
+              isPositive={stats.positive?.isPositive}
+              label={stats.positive?.label}
+            />
+            <StatCard
+              title="Negative Reviews"
+              count={stats.negative?.count}
+              growth={stats.negative?.growth}
+              isPositive={stats.negative?.isPositive}
+              label={stats.negative?.label}
+            />
+            <StatCard
+              title="New Signups Today"
+              count={stats.newSignups?.count}
+              growth={stats.newSignups?.growth}
+              isPositive={stats.newSignups?.isPositive}
+              label={stats.newSignups?.label}
+            />
+          </>
+        ) : null}
       </div>
 
       {/* ================= FEED + RATINGS ================= */}
-      <div className="row g-4 mb-4">
+      <div className="row g-3 mb-4">
         <div className="col-12">
           <div className="card clean-card">
             <div className="card-header clean-header">
-              <span className="fw-bold">Engagement trend line graph</span>
-              <select className="clean-select">
-                <option>April 2026</option>
-                <option>May 2026</option>
+              <span className="fw-bold">Monthly Users Chart</span>
+              <select
+                className="clean-select"
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(e.target.value)}
+              >
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
               </select>
             </div>
 
-            <div className="card-body w0-line-canva">
-              <Line data={lineData} options={lineOptions} />
+            <div className="card-body w0-line-canva" style={{ height: "400px" }}>
+              {chartLoading ? (
+                <div className="d-flex justify-content-center align-items-center h-100">
+                  <div className="spinner-border" style={{ color: "#6A1B9A" }} role="status">
+                    <span className="visually-hidden">Loading chart...</span>
+                  </div>
+                </div>
+              ) : chartError ? (
+                <div className="alert alert-danger m-3">{chartError}</div>
+              ) : chartData ? (
+                <ResponsiveLine
+                  data={nivoData}
+                  margin={{ top: 30, right: 30, bottom: 50, left: 50 }}
+                  xScale={{ type: "point" }}
+                  yScale={{
+                    type: "linear",
+                    min: "auto",
+                    max: "auto",
+                    stacked: false,
+                    reverse: false,
+                  }}
+                  yFormat=" >-.0f"
+                  curve="monotoneX"
+                  axisTop={null}
+                  axisRight={null}
+                  axisBottom={{
+                    tickSize: 5,
+                    tickPadding: 5,
+                    tickRotation: 0,
+                    // legend: "Month",
+                    legendOffset: 36,
+                    legendPosition: "middle",
+                    truncateTickAt: 0,
+                  }}
+                  axisLeft={{
+                    tickSize: 5,
+                    tickPadding: 5,
+                    tickRotation: 0,
+                    legend: "Users",
+                    legendOffset: -40,
+                    legendPosition: "middle",
+                    truncateTickAt: 0,
+                  }}
+                  enableGridX={false}
+                  gridYValues={5}
+                  colors={["#6A1B9A"]}
+                  lineWidth={3}
+                  enablePoints={true}
+                  pointSize={8}
+                  pointColor={{ theme: "background" }}
+                  pointBorderWidth={2}
+                  pointBorderColor={{ from: "serieColor" }}
+                  pointLabel="data.yFormatted"
+                  pointLabelYOffset={-12}
+                  enableTouchCrosshair={true}
+                  useMesh={true}
+                  tooltip={({ point }) => (
+                    <div
+                      style={{
+                        background: "#1f1f1f",
+                        color: "#ffffff",
+                        padding: "9px 12px",
+                        borderRadius: "8px",
+                        fontSize: "13px",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      }}
+                    >
+                      <div className="d-flex align-items-center gap-2 mb-1">
+                        {/* <span
+                          style={{
+                            width: 10,
+                            height: 10,
+                            background: point.serieColor,
+                            borderRadius: "50%",
+                            display: "inline-block",
+                          }}
+                        /> */}
+                        <strong>Month:</strong> {point.data.xFormatted || point.data.x}
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        {/* <span
+                          style={{
+                            width: 10,
+                            height: 10,
+                            background: "transparent",
+                            display: "inline-block",
+                          }}
+                        /> */}
+                        <strong>Student:</strong> {point.data.yFormatted || point.data.y}
+                      </div>
+                    </div>
+                  )}
+                  theme={{
+                    axis: {
+                      domain: { line: { stroke: "#e0e0e0" } },
+                      ticks: {
+                        line: { stroke: "#e0e0e0", strokeWidth: 1 },
+                        text: {
+                          fontSize: 12,
+                          fill: "#666666",
+                          fontFamily: "var(--font-quicksand), sans-serif",
+                        },
+                      },
+                      legend: {
+                        text: {
+                          fontSize: 13,
+                          fill: "#333333",
+                          fontWeight: 600,
+                          fontFamily: "var(--font-quicksand), sans-serif",
+                        },
+                      },
+                    },
+                    grid: { line: { stroke: "#f0f0f0", strokeWidth: 1 } },
+                    tooltip: {
+                      container: {
+                        background: "#1f1f1f",
+                        color: "#ffffff",
+                        fontSize: 13,
+                        borderRadius: 8,
+                        padding: 12,
+                      },
+                    },
+                  }}
+                />
+              ) : null}
             </div>
           </div>
         </div>
         {/* Activity Feed */}
-        <div className="col-lg-7">
+        {/* <div className="col-lg-7">
           <div className="card clean-card h-100">
             <div className="card-header clean-header">
               <span className="fw-bold">Recent Activity Feed</span>
@@ -218,10 +328,10 @@ export default function Dashboard() {
               <Activity type="helpful" badge="+ Helpful" />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Ratings */}
-        <div className="col-lg-5">
+        {/* <div className="col-lg-5">
           <div className="card clean-card h-100">
             <div className="card-header clean-header">
               <span className="fw-bold">Ratings Summary</span>
@@ -260,33 +370,48 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
-
-
+        </div> */}
       </div>
 
       {/* ================= LINE GRAPH ================= */}
-
-
     </div>
   );
 }
 
 /* ================= COMPONENTS ================= */
 
-function StatCard({ title, value, danger }) {
+function StatCard({ title, count, growth, isPositive, label }) {
+  const isNegativeMetric = title.toLowerCase().includes("negative");
+  const danger = isNegativeMetric ? isPositive : !isPositive;
+
   return (
-    <div className="col-xl-3 col-md-6">
-      <div className="card stat-card align-items-stretch clean-card">
-        <span className="stat-title">{title}</span>
-        <div className="d-flex justify-content-between">
-          <div>
+    <div className="col-xl col-lg-4 col-md-6">
+      <div className="card stat-card align-items-stretch clean-card h-100">
+        <span className="stat-title mb-2">{title}</span>
+        <div className="d-flex justify-content-between align-items-center mt-auto">
+          <div className="w-100">
             <div className="stat-row">
-              <h3>{value}</h3>
+              <h3>{count ?? 0}</h3>
             </div>
-            <span className={`stat-badge ${danger ? "red" : ""}`}>{danger ? <ImArrowDownLeft2 /> : <ImArrowUpRight2 />} 4.8%</span>
+            <div className="d-flex align-items-center justify-content-between gap-2">
+
+              <span className={`stat-badge ${danger ? "red" : ""}`}>
+                {danger ? <ImArrowDownLeft2 /> : <ImArrowUpRight2 />} {growth ?? 0}%
+              </span>
+              <Image
+                width={40}
+                height={22}
+                alt=""
+                src={`/images/${danger ? "wo-chart-icon2.png" : "wo-chart-icon1.png"}`}
+              />
+            </div>
+            {label && (
+              <div className="text-muted mt-1" style={{ fontSize: "11px" }}>
+                {label}
+              </div>
+            )}
           </div>
-          <Image width={70.79} height={36.77} alt="" src={`/images/${danger ? 'wo-chart-icon2.png' : 'wo-chart-icon1.png'}`} />
+
         </div>
       </div>
     </div>
@@ -315,3 +440,4 @@ function Activity({ type, badge }) {
     </div>
   );
 }
+

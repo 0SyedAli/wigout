@@ -9,6 +9,7 @@ import { TbNotification } from "react-icons/tb";
 import { MdOutlineAnalytics } from "react-icons/md";
 import Image from "next/image";
 import { FiSettings } from "react-icons/fi";
+import { deleteCookie } from "cookies-next";
 
 export default function StudentSidebar() {
   const pathname = usePathname();
@@ -30,11 +31,11 @@ export default function StudentSidebar() {
     //   label: "Establishments",
     //   path: "/dashboard/establishments",
     // },
-    {
-      icon: <TbNotification size={17} />,
-      label: "Categories",
-      path: "/dashboard/categories",
-    },
+    // {
+    //   icon: <TbNotification size={17} />,
+    //   label: "Categories",
+    //   path: "/dashboard/categories",
+    // },
     {
       icon: <MdOutlineAnalytics size={17} />,
       label: "Ratings & Reviews",
@@ -77,6 +78,8 @@ export default function StudentSidebar() {
     if (typeof window !== "undefined") {
       localStorage.removeItem("user");
       localStorage.removeItem("token"); // (safe even if not exists)
+      deleteCookie("auth_token");
+      deleteCookie("data");
     }
 
     router.replace("/auth/login");

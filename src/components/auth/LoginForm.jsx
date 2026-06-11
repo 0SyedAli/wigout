@@ -85,11 +85,11 @@ export default function LoginForm() {
           type="submit"
           disabled={loading}
         >
-          {loading ? "Logging in..." : "Get Started"}
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
 
-      <p className="auth-or">Login with</p>
+      {/* <p className="auth-or">Login with</p>
 
       <button className="social google" type="button">
         <div><FcGoogle /> </div>Sign in with Google
@@ -97,14 +97,14 @@ export default function LoginForm() {
 
       <button className="social facebook" type="button">
         <div><FaFacebook /> </div>Sign in with Facebook
-      </button>
+      </button> */}
 
-      <div className="register_link">
+      {/* <div className="register_link">
         <h5>
           {"Don't have an account? "}
           <Link href="signup">Sign Up</Link>
         </h5>
-      </div>
+      </div> */}
     </div>
   );
 }

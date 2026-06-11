@@ -1,4 +1,8 @@
 /* RESET */
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -1327,7 +1331,7 @@ table td {
   display: inline-block;
   color: #000;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 30px;
 }
 
@@ -1444,9 +1448,7 @@ table td {
   gap: 20px;
 }
 
-.page-header-main {
-  border-bottom: 1px solid #ccc;
-}
+
 
 .page-header h5 {
   font-weight: 700;
@@ -1505,6 +1507,22 @@ table td {
   border-radius: 12px;
   font-weight: 600;
   display: inline-block;
+}
+
+.status-inactive {
+  background: #f4f4f4;
+  color: #666;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.page-link,
+.page-link:hover,
+.page-link:focus {
+  color: #000;
+  box-shadow: none;
 }
 
 /* ===== Actions ===== */
@@ -1733,7 +1751,7 @@ button {
   appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, #7a7f8a 50%),
     linear-gradient(135deg, #7a7f8a 50%, transparent 50%);
-  background-position: calc(100% - 18px) 18px, calc(100% - 12px) 18px;
+  background-position: calc(100% - 18px) 17px, calc(100% - 12px) 17px;
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
   padding-right: 38px;
@@ -1779,6 +1797,28 @@ button {
 
 .heart {
   font-size: 30px;
+}
+
+.admin-avatar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar-text h5,
+.avatar-text p {
+  margin: 0;
+  color: #5a004f;
+  font-weight: 700;
+}
+
+.avatar-text p {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.input-group input:focus {
+  box-shadow: none;
 }
 
 /* ================= Lists Page ================= */
