@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { FaRegEye, FaTimes, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { MdOutlineModeEdit } from "react-icons/md";
-import api from "@/lib/api";
-
+import api, { deleteReview } from "@/lib/api";
 export default function ReviewsPage() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -53,6 +52,40 @@ export default function ReviewsPage() {
       showToast("Failed to fetch reviews", "error");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeleteReview = async (reviewId) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this review?"
+    );
+
+    if (!confirmed) return;
+
+    try {
+      setActionLoading(reviewId);
+
+      const response = await deleteReview(reviewId);
+
+      if (response.data.success) {
+        showToast("Review deleted successfully");
+
+        // Table se remove kar do
+        setReviews((prev) =>
+          prev.filter((review) => review._id !== reviewId)
+        );
+
+        // Ya dobara list fetch kar lo
+        // fetchReviews(currentPage);
+      }
+    } catch (error) {
+      console.error("Delete review error:", error);
+      showToast(
+        error?.response?.data?.message || "Failed to delete review",
+        "error"
+      );
+    } finally {
+      setActionLoading(null);
     }
   };
 
@@ -363,15 +396,16 @@ export default function ReviewsPage() {
                               <FaRegEye />
                             </button>
                             <button
-                              className="btn btn-sm btn-outline-secondary"
-                              title="Edit Review"
+                              className="btn btn-sm btn-outline-danger"
+                              title="Delete"
                               style={{
-                                color: "#5a004f",
-                                borderColor: "#5a004f",
+                                color: "#d80000",
+                                borderColor: "#c90000",
                               }}
+                              onClick={() => handleDeleteReview(review._id)}
                               disabled={actionLoading === review._id}
                             >
-                              <MdOutlineModeEdit />
+                              <FaTimes />
                             </button>
                             {actionLoading === review._id && (
                               <span

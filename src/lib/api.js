@@ -79,4 +79,8 @@ export const createNotification = async (payload) => {
   return api.post('/admin/notifications/', payload);
 };
 
+export const deleteReview = async (reviewId) => {
+  return api.delete(`/admin/reviews/${reviewId}`);
+};
+
 export default api;
