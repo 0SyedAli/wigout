@@ -1,16 +1,13 @@
 "use client"
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaApple, FaFacebook } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import api from "@/lib/api";
 import { setCookie } from "cookies-next";
 
 export default function LoginForm() {
   const router = useRouter();
-  const [email, setEmail] = useState("admin.wigout@yopmail.com");
-  const [password, setPassword] = useState("pass12345");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
